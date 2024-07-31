@@ -1,6 +1,7 @@
 {
   "name": "auto-delovi-3sp-backoffice",
-  "homepage": "https://medanmilos1831.github.io/auto-delovi-3sp-backoffice""private": true,
+  "homepage": "https://medanmilos1831.github.io/auto-delovi-3sp-backoffice",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -22,6 +23,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "gh-pages": "^6.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
   }
