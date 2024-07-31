@@ -25,7 +25,6 @@ const RemoveCategoryModal = ({
       });
       closeModal();
     },
-    onError(error, variables, context) {},
   });
   return (
     <>

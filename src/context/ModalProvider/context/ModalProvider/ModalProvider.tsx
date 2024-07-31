@@ -1,12 +1,8 @@
-import { PropsWithChildren, createContext, useContext } from 'react';
-import {
-  IModalContext,
-  IModalProvider,
-  MODAL_PROVIDER_MODE,
-} from '../../types';
+import { PropsWithChildren, createContext, useContext } from "react";
+import { IModalContext, IModalProvider } from "../../types";
 
-import { RegistredModalsStore } from '../../service';
-import { ModalHandlerProvider, ModalBtn } from '../ModalHandler';
+import { RegistredModalsStore } from "../../service";
+import { ModalHandlerProvider, ModalBtn } from "../ModalHandler";
 
 const ModalContext = createContext<IModalContext>({
   modals: {},

@@ -8,7 +8,7 @@ const useFetchProgramCategories = () => {
     queryFn: async () => {
       return await get(`/category`);
     },
-  });
+  }) as any;
 };
 
 export { useFetchProgramCategories };

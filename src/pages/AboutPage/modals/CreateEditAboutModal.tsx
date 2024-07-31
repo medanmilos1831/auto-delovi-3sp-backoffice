@@ -1,10 +1,9 @@
-import { IModalElementProps } from 'src/context/ModalProvider';
-import { Button, Form, Input, Row, Space } from 'antd';
-import { API_ROUTES } from '@/constants';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useApiProvider } from '@/context';
-import { ABOUT_QUERY_KEY } from '../constants';
-import { useNotification } from '@/hooks';
+import { Button, Form, Input, Row, Space } from "antd";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { ABOUT_QUERY_KEY } from "../constants";
+import { useNotification } from "../../../hooks";
+import { API_ROUTES } from "../../../constants";
+import { IModalElementProps, useApiProvider } from "../../../context";
 
 const CreateEditAboutModal = ({
   closeModal,
@@ -19,11 +18,11 @@ const CreateEditAboutModal = ({
   const { mutate } = useMutation({
     mutationFn: (payload: any) => {
       return id
-        ? put<any>(`${API_ROUTES.PROGRAM.UPDATE}/${id}`, payload)
-        : post<any>(API_ROUTES.PROGRAM.CREATE, payload);
+        ? put(`${API_ROUTES.PROGRAM.UPDATE}/${id}`, payload)
+        : post(API_ROUTES.PROGRAM.CREATE, payload);
     },
     onSuccess() {
-      successNotifcation(`Uspešno ste ${id ? 'izmenili' : 'kreirali'} program`);
+      successNotifcation(`Uspešno ste ${id ? "izmenili" : "kreirali"} program`);
       client.invalidateQueries({
         queryKey: [ABOUT_QUERY_KEY],
       });
@@ -33,7 +32,7 @@ const CreateEditAboutModal = ({
   return (
     <>
       <Form
-        name={'create-edit-program-form'}
+        name={"create-edit-program-form"}
         form={form}
         onFinish={(values) => {
           mutate(values);
@@ -49,10 +48,10 @@ const CreateEditAboutModal = ({
           <Input />
         </Form.Item>
 
-        <Row justify={'end'} className="mt-2">
+        <Row justify={"end"} className="mt-2">
           <Space>
             <Button htmlType="submit" type="primary">
-              {id ? 'Izmeni' : 'Sačuvaj'}
+              {id ? "Izmeni" : "Sačuvaj"}
             </Button>
             <Button danger onClick={closeModal}>
               Odustani

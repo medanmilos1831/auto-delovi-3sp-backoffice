@@ -34,8 +34,8 @@ const ContactPage = () => {
   });
 
   useEffect(() => {
-    if (data?.hasContact) {
-      const { id, ...rest } = data.contact;
+    if ((data as any)?.hasContact) {
+      const { id, ...rest } = (data as any).contact;
       form.setFieldsValue(rest);
     }
   }, [data]);

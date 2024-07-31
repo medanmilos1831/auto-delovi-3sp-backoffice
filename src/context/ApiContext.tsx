@@ -1,5 +1,5 @@
-import { PropsWithChildren, createContext, useContext } from 'react';
-import { IAxios } from '@/libs';
+import { PropsWithChildren, createContext, useContext } from "react";
+import { IAxios } from "../libs";
 
 const ApiContext = createContext<IAxios | undefined>(undefined);
 

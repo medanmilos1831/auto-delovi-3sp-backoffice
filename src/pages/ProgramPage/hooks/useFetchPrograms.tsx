@@ -9,7 +9,7 @@ const useFetchPrograms = () => {
     queryFn: async () => {
       return await get("/program");
     },
-  });
+  }) as any;
 };
 
 export { useFetchPrograms };

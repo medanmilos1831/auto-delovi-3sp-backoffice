@@ -9,7 +9,7 @@ import {
 const useNotification = () => {
   const successNotifcation = (
     description: string = "Sve je ok",
-    obj?: {
+    _?: {
       duration?: number;
     }
   ) => {

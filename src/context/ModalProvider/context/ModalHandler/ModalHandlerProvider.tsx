@@ -1,20 +1,14 @@
-import {
-  PropsWithChildren,
-  createContext,
-  isValidElement,
-  useContext,
-} from 'react';
-import { Button, ButtonProps } from 'antd';
-import { useModalHandlerService } from '../../hooks';
-import { AntModal } from '../../components';
+import { PropsWithChildren, createContext, useContext } from "react";
+import { useModalHandlerService } from "../../hooks";
+import { AntModal } from "../../components";
 import {
   IModalHandlerContext,
   closeModalHandler,
   openModalHandler,
-} from '../../types';
+} from "../../types";
 
 const ModalHandlerContext = createContext<IModalHandlerContext>({
-  openModal: (modalName) => {},
+  openModal: () => {},
   activeModal: null,
   closeModal: () => {},
 });

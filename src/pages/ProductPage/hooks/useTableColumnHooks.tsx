@@ -94,7 +94,7 @@ const useTableColumnHooks = () => {
       title: "Ime kategorije",
       dataIndex: "categories",
       key: "categories",
-      render(category: any, re: any) {
+      render(_: any, re: any) {
         return (
           <>
             {re.categories.map((i: any, index: any) => {
@@ -108,7 +108,7 @@ const useTableColumnHooks = () => {
       title: "Ime programa",
       dataIndex: "programs",
       key: "programs",
-      render(programs: any, re: any) {
+      render(_: any, re: any) {
         return (
           <div>
             {re.programs.map((i: any, index: number) => {

@@ -59,7 +59,7 @@ const PageTemplate = ({
           <Col span={24}>
             <Table
               loading={isLoading || isFetching}
-              dataSource={data ? data : []}
+              dataSource={data ? data : ([] as any)}
               columns={columns}
               rowKey={rowKey}
               locale={{ emptyText: "Nema podatak" }}

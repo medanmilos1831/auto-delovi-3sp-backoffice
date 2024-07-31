@@ -1,13 +1,13 @@
-import { Button, Space } from 'antd';
-import { ModalBtn } from 'src/context/ModalProvider';
-import { ABOUT_PAGE_MODALS } from '../types';
+import { Button, Space } from "antd";
+import { ABOUT_PAGE_MODALS } from "../types";
+import { ModalBtn } from "../../../context";
 
 const useTableColumnHooks = () => {
   const columns = [
     {
-      title: 'Program',
-      dataIndex: 'naziv',
-      key: 'naziv',
+      title: "Program",
+      dataIndex: "naziv",
+      key: "naziv",
     },
     {
       render(record: any) {

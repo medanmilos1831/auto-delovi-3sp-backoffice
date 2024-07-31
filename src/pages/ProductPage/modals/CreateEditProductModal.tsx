@@ -39,7 +39,7 @@ const CreateEditProductModal = ({
           })
         : post("/product", payload);
     },
-    onSuccess(data, variables, context) {
+    onSuccess() {
       successNotifcation(
         `uspesno ste ${
           injectedData.data.slug ? "izmenili" : "kreirali"
@@ -50,7 +50,6 @@ const CreateEditProductModal = ({
       });
       closeModal();
     },
-    onError(error, variables, context) {},
   });
   return (
     <>
@@ -89,7 +88,7 @@ const CreateEditProductModal = ({
             placeholder="Izaberi kategoriju"
             allowClear
             options={(() => {
-              return data?.map((item: any, index: any) => {
+              return data?.map((item: any) => {
                 return {
                   value: item.slug,
                   label: `${item.naziv}`,
@@ -115,7 +114,6 @@ const CreateEditProductModal = ({
               console.log("milos", category);
               if (typeof category === "string") {
                 let d = data?.find((i: any) => i.slug === category);
-                console.log("sss", d?.program);
                 opt = d?.program;
               } else {
                 let d = data?.find((i: any) => i.slug === category.value);

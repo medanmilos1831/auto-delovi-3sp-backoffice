@@ -1,10 +1,9 @@
-import { IModalElementProps } from 'src/context/ModalProvider';
-import { Button, Row, Space } from 'antd';
-import { API_ROUTES } from '@/constants';
-import { useApiProvider } from '@/context';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { ABOUT_QUERY_KEY } from '../constants';
-import { useNotification } from '@/hooks';
+import { Button, Row, Space } from "antd";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { ABOUT_QUERY_KEY } from "../constants";
+import { useNotification } from "../../../hooks";
+import { API_ROUTES } from "../../../constants";
+import { IModalElementProps, useApiProvider } from "../../../context";
 
 const RemoveAboutModal = ({ closeModal, elementProps }: IModalElementProps) => {
   const client = useQueryClient();
@@ -14,23 +13,22 @@ const RemoveAboutModal = ({ closeModal, elementProps }: IModalElementProps) => {
   const { remove } = useApiProvider();
   const { mutate } = useMutation({
     mutationFn: () => {
-      return remove<any>(`${API_ROUTES.PROGRAM.REMOVE}/${id}`);
+      return remove(`${API_ROUTES.PROGRAM.REMOVE}/${id}`);
     },
-    onSuccess(data) {
-      successNotifcation('Uspešno ste obrisali program!');
+    onSuccess() {
+      successNotifcation("Uspešno ste obrisali program!");
       client.invalidateQueries({
         queryKey: [ABOUT_QUERY_KEY],
       });
       closeModal();
     },
-    onError(error, variables, context) {},
   });
   return (
     <>
       <Row>
         <span>Da li ste sigurni da zelite da obrisete program?</span>
       </Row>
-      <Row justify={'center'} className="mt-2">
+      <Row justify={"center"} className="mt-2">
         <Space>
           <Button type="primary">Ne</Button>
           <Button
