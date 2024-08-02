@@ -9,7 +9,7 @@ import { useNotification } from "../../hooks";
 const PocetnaPage = () => {
   const props: UploadProps = {
     name: "file",
-    action: `${import.meta.env.VITE_API}/upload-pocetna`,
+    action: `${import.meta.env.VITE_API}upload-pocetna`,
     onChange(info) {
       if (info.file.status !== "uploading") {
       }

@@ -10,39 +10,44 @@ import {
   PocetnaPage,
 } from "../pages";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: SPA_ROUTES.PROGRAM_PAGE,
+      element: <HomePage />,
+      children: [
+        {
+          index: true,
+          element: <ProgramPage />,
+        },
+        {
+          path: SPA_ROUTES.CATEGORY_PAGE,
+          element: <CategoryPage />,
+        },
+        {
+          path: SPA_ROUTES.PRODUCT_PAGE,
+          element: <ProductPage />,
+        },
+        {
+          path: SPA_ROUTES.ABOUT,
+          element: <AboutPage />,
+        },
+        {
+          path: SPA_ROUTES.CONTACT,
+          element: <ContactPage />,
+        },
+        {
+          path: SPA_ROUTES.HOME,
+          element: <PocetnaPage />,
+        },
+      ],
+    },
+    {
+      path: "*",
+      element: <>nema</>,
+    },
+  ],
   {
-    path: SPA_ROUTES.PROGRAM_PAGE,
-    element: <HomePage />,
-    children: [
-      {
-        index: true,
-        element: <ProgramPage />,
-      },
-      {
-        path: SPA_ROUTES.CATEGORY_PAGE,
-        element: <CategoryPage />,
-      },
-      {
-        path: SPA_ROUTES.PRODUCT_PAGE,
-        element: <ProductPage />,
-      },
-      {
-        path: SPA_ROUTES.ABOUT,
-        element: <AboutPage />,
-      },
-      {
-        path: SPA_ROUTES.CONTACT,
-        element: <ContactPage />,
-      },
-      {
-        path: SPA_ROUTES.HOME,
-        element: <PocetnaPage />,
-      },
-    ],
-  },
-  {
-    path: "*",
-    element: <>nema</>,
-  },
-]);
+    basename: "/auto-delovi-3sp-backoffice",
+  }
+);

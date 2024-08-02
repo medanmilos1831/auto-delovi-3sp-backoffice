@@ -16,7 +16,8 @@ const providerConfig = {
   clientId: import.meta.env.VITE_REACT_APP_AUTH0_CLIENT_ID as string,
   onRedirectCallback,
   authorizationParams: {
-    redirect_uri: window.location.origin,
+    redirect_uri:
+      "https://medanmilos1831.github.io/auto-delovi-3sp-backoffice/",
   },
 };
 

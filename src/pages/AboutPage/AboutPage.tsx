@@ -37,7 +37,7 @@ const AboutPage = () => {
   }, [data]);
   const props: UploadProps = {
     name: "file",
-    action: `${import.meta.env.VITE_API}/upload-about`,
+    action: `${import.meta.env.VITE_API}upload-about`,
     // headers: {
     //   authorization: 'authorization-text',
     // },

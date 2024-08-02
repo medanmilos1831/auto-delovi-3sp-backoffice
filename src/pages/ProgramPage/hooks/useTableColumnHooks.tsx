@@ -43,7 +43,7 @@ const useTableColumnHooks = () => {
         return (
           <Upload
             {...props}
-            action={`${import.meta.env.VITE_API}/upload`}
+            action={`${import.meta.env.VITE_API}upload`}
             data={{
               id: record.id,
               slug: record.slug,
