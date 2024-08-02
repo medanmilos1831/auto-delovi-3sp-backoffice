@@ -3,8 +3,6 @@ import { App } from "./App.tsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import "./styles/index.less";
 const onRedirectCallback = (appState: any) => {
-  // Ova funkcija se izvršava kada Auth0 preusmeri korisnika nazad na vašu aplikaciju
-  // Možete je koristiti za preusmeravanje korisnika na određenu stranicu
   window.history.replaceState(
     {},
     document.title,
