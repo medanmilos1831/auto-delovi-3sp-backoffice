@@ -1,10 +1,10 @@
 const API_DOMAIN = {
-  PROGRAM: 'program_bo',
-  CATEGORY: 'category_bo',
-  PRODUCT: 'product',
-  ABOUT: '/about',
-  CONTACT: '/contact_bo',
-  HOME: '/home_bo',
+  PROGRAM: "program_bo",
+  CATEGORY: "category_bo",
+  PRODUCT: "product",
+  ABOUT: "/about",
+  CONTACT: "/contact_bo",
+  HOME: "/home_bo",
 };
 export const API_ROUTES = {
   PROGRAM: {
@@ -36,6 +36,3 @@ export const API_ROUTES = {
     BASE: `${API_DOMAIN.HOME}`,
   },
 };
-
-// export const API = 'http://localhost:3000';
-// export const API = "https://api.auto-delovi-3sp.com/",

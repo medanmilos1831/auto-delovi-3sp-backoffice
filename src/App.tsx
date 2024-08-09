@@ -7,13 +7,14 @@ import { ApiProvider } from "./context";
 import { router } from "./router/router";
 
 const App = () => {
+  console.log("VITE_API", import.meta.env.VITE_API, import.meta.env.MODE);
   const { isLoading, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  if (isLoading) {
+  if (import.meta.env.MODE === "production" && isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (!isAuthenticated) {
+  if (import.meta.env.MODE === "production" && !isAuthenticated) {
     loginWithRedirect();
     return <div>Redirecting...</div>;
   }
@@ -32,9 +33,11 @@ const App = () => {
     >
       <ApiProvider value={new Axios()}>
         <div className="page flex flex-column">
-          <div>
-            <button onClick={() => logout()}>logout</button>
-          </div>
+          {import.meta.env.MODE === "development" ? null : (
+            <div>
+              <button onClick={() => logout()}>logout</button>
+            </div>
+          )}
           <RouterProvider router={router} />
         </div>
       </ApiProvider>

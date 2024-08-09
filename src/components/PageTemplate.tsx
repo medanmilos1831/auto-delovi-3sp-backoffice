@@ -25,7 +25,7 @@ const PageTemplate = ({
   fetchApiRouter,
   btnText,
   onClickBtn,
-  rowKey = "id",
+  rowKey = "slug",
 }: IPageTemplate) => {
   const { get } = useApiProvider();
 

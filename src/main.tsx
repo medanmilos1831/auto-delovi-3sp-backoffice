@@ -20,7 +20,11 @@ const providerConfig = {
 };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Auth0Provider {...providerConfig}>
+  import.meta.env.MODE === "production" ? (
+    <Auth0Provider {...providerConfig}>
+      <App />
+    </Auth0Provider>
+  ) : (
     <App />
-  </Auth0Provider>
+  )
 );

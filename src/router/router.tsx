@@ -48,6 +48,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/auto-delovi-3sp-backoffice",
+    basename: "/auto-delovi-3sp-backoffice/",
   }
 );
