@@ -31,11 +31,14 @@ const CreateEditProductModal = ({
       return injectedData.data.slug
         ? put(`/product/${injectedData.data.slug}`, {
             ...payload,
-            programId:
-              typeof payload.programId[0] === "object"
-                ? payload.programId.map((i: any) => i.value)
-                : payload.programId,
-            categoryId: [payload.categoryId],
+            programId: Array.isArray(payload.programId)
+              ? payload.programId[0].value
+              : payload.programId,
+            // programId:
+            //   typeof payload.programId[0] === "object"
+            //     ? payload.programId.map((i: any) => i.value)
+            //     : payload.programId,
+            categoryId: payload.categoryId,
           })
         : post("/product", payload);
     },
@@ -57,7 +60,13 @@ const CreateEditProductModal = ({
         form={form}
         name="control-hooks"
         onFinish={(values: any) => {
-          mutate(values);
+          mutate({
+            ...values,
+            categoryId: {
+              label: values.categoryId.label,
+              value: values.categoryId.value,
+            },
+          });
         }}
         className="py-2"
         style={{ maxWidth: 600 }}
@@ -86,13 +95,14 @@ const CreateEditProductModal = ({
           <Select
             disabled={isLoading || isFetching}
             placeholder="Izaberi kategoriju"
+            labelInValue
             allowClear
             options={(() => {
               return data?.map((item: any) => {
                 return {
                   value: item.slug,
                   label: `${item.naziv}`,
-                  item,
+                  // item,
                 };
               });
             })()}
@@ -109,9 +119,7 @@ const CreateEditProductModal = ({
           {({ getFieldValue }) => {
             let opt: any = [];
             const category = getFieldValue("categoryId");
-            // console.log('newProductSlug', category, data);
             if (category) {
-              console.log("milos", category);
               if (typeof category === "string") {
                 let d = data?.find((i: any) => i.slug === category);
                 opt = d?.program;
@@ -123,7 +131,7 @@ const CreateEditProductModal = ({
             return (
               <Form.Item name="programId" label="Program">
                 <Select
-                  mode="multiple"
+                  // mode="multiple"
                   disabled={isLoading || isFetching}
                   placeholder="Izaberi program"
                   allowClear
