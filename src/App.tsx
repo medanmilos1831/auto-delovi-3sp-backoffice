@@ -8,100 +8,100 @@ import { ApiProvider } from "./context";
 import { router } from "./router/router";
 import { Upload, Button } from "antd";
 
-const generateUniqueIds = (start: any, end: any, count: any) => {
-  const ids = new Set();
-  while (ids.size < count) {
-    const id = Math.floor(Math.random() * (end - start + 1)) + start;
-    ids.add(id);
-  }
-  return Array.from(ids);
-};
+// const generateUniqueIds = (start: any, end: any, count: any) => {
+//   const ids = new Set();
+//   while (ids.size < count) {
+//     const id = Math.floor(Math.random() * (end - start + 1)) + start;
+//     ids.add(id);
+//   }
+//   return Array.from(ids);
+// };
 
-const generateData = (numItems: any) => {
-  const half = numItems / 2;
+// const generateData = (numItems: any) => {
+//   const half = numItems / 2;
 
-  // Generiši 3000 jedinstvenih ID-ova u opsegu 50000-60000
-  const traktorskiProgramIds = generateUniqueIds(50000, 60000, half);
+//   // Generiši 3000 jedinstvenih ID-ova u opsegu 50000-60000
+//   const traktorskiProgramIds = generateUniqueIds(50000, 60000, half);
 
-  // Generiši 3000 jedinstvenih ID-ova u opsegu 1-49999
-  const autoProgramIds = generateUniqueIds(1, 49999, half);
+//   // Generiši 3000 jedinstvenih ID-ova u opsegu 1-49999
+//   const autoProgramIds = generateUniqueIds(1, 49999, half);
 
-  const ids = [...traktorskiProgramIds, ...autoProgramIds];
-  const categories = [
-    "filteri",
-    "pločice",
-    "gume",
-    "svečice",
-    "akumulatori",
-    "pumpa-za-gorivo",
-    "zamajac",
-    "kočioni-diskovi",
-    "kočione-pločice",
-    "španeri",
-    "ulje-za-motor",
-    "mjenjač",
-    "remenice",
-    "alternator",
-    "starter",
-    "egr-ventil",
-    "hladnjak",
-    "kondenzator",
-    "termostat",
-    "zračni-filter",
-    "uljni-filter",
-    "paljenje",
-    "razvodna-kapica",
-    "razvodnik",
-    "nosaci",
-    "opruga",
-    "stabilizatori",
-    "zračnice",
-    "škrge",
-    "zatvarači",
-    "rukohvati",
-    "gornji-nosač",
-    "donji-nosač",
-    "zračni-rezervoar",
-    "hladnjak-za-ulje",
-    "čarape-za-gume",
-    "upravljač",
-    "kablovi",
-    "prigušivač",
-    "razvodnik-goriva",
-    "pumpe-za-vodu",
-    "ležajevi",
-    "distributer",
-    "silikoni",
-    "električni-sistem",
-    "navigacija",
-    "kamera-za-vožnju",
-    "parking-senzori",
-    "isporuka",
-    "ulja-i-maziva",
-  ];
-  // const categories = ["filter", "plocice"]; // Definiši kategorije
+//   const ids = [...traktorskiProgramIds, ...autoProgramIds];
+//   const categories = [
+//     "filteri",
+//     "pločice",
+//     "gume",
+//     "svečice",
+//     "akumulatori",
+//     "pumpa-za-gorivo",
+//     "zamajac",
+//     "kočioni-diskovi",
+//     "kočione-pločice",
+//     "španeri",
+//     "ulje-za-motor",
+//     "mjenjač",
+//     "remenice",
+//     "alternator",
+//     "starter",
+//     "egr-ventil",
+//     "hladnjak",
+//     "kondenzator",
+//     "termostat",
+//     "zračni-filter",
+//     "uljni-filter",
+//     "paljenje",
+//     "razvodna-kapica",
+//     "razvodnik",
+//     "nosaci",
+//     "opruga",
+//     "stabilizatori",
+//     "zračnice",
+//     "škrge",
+//     "zatvarači",
+//     "rukohvati",
+//     "gornji-nosač",
+//     "donji-nosač",
+//     "zračni-rezervoar",
+//     "hladnjak-za-ulje",
+//     "čarape-za-gume",
+//     "upravljač",
+//     "kablovi",
+//     "prigušivač",
+//     "razvodnik-goriva",
+//     "pumpe-za-vodu",
+//     "ležajevi",
+//     "distributer",
+//     "silikoni",
+//     "električni-sistem",
+//     "navigacija",
+//     "kamera-za-vožnju",
+//     "parking-senzori",
+//     "isporuka",
+//     "ulja-i-maziva",
+//   ];
+//   // const categories = ["filter", "plocice"]; // Definiši kategorije
 
-  const data = ids.map((id, index) => {
-    const isTraktorskiProgram = traktorskiProgramIds.includes(id);
-    const category = categories[Math.floor(Math.random() * categories.length)]; // Nasumično odaberi kategoriju
-    const opis = `${category.charAt(0).toUpperCase() + category.slice(1)} ${
-      index + 1
-    }`; // Opis sa kategorijom
-    const cena = Math.floor(Math.random() * 5000) + 100; // Cena između 100 i 5100
-    const kataloskiBroj = Math.floor(Math.random() * 1000) + 1; // Kataloski broj između 1 i 1000
+//   const data = ids.map((id, index) => {
+//     // const isTraktorskiProgram = traktorskiProgramIds.includes(id);
+//     const category = categories[Math.floor(Math.random() * categories.length)]; // Nasumično odaberi kategoriju
+//     const opis = `${category.charAt(0).toUpperCase() + category.slice(1)} ${
+//       index + 1
+//     }`; // Opis sa kategorijom
+//     const cena = Math.floor(Math.random() * 5000) + 100; // Cena između 100 i 5100
+//     const kataloskiBroj = Math.floor(Math.random() * 1000) + 1; // Kataloski broj između 1 i 1000
 
-    return { id, opis, cena, kataloski_broj: kataloskiBroj };
-  });
+//     return { id, opis, cena, kataloski_broj: kataloskiBroj };
+//   });
 
-  return data;
-};
+//   return data;
+// };
 
-// Generiši 6000 objekata
-const d = generateData(6000);
-console.log("dddd", [
-  ...d,
-  { cena: 99999, id: 1, kataloski_broj: 1, opis: "milos" },
-]);
+// // Generiši 6000 objekata
+// const d = generateData(6000);
+// console.log("dddd", [
+//   ...d,
+//   { cena: 99999, id: 1, kataloski_broj: 1, opis: "milos" },
+// ]);
 const App = () => {
   const props = {
     name: "file",
