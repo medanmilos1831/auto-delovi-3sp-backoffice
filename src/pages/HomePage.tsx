@@ -33,7 +33,7 @@ const HomePage = () => {
     <div className="h-100 w-100">
       <Row className="h-100 w-100">
         <Col span={6} className="h-100 bg-blue">
-          <Row className="h-100 w-100 flex flex-column">
+          {/* <Row className="h-100 w-100 flex flex-column">
             {navLinkMap.map((item) => {
               return (
                 <Col key={item.url}>
@@ -55,7 +55,7 @@ const HomePage = () => {
                 </Col>
               );
             })}
-          </Row>
+          </Row> */}
         </Col>
         <Col span={18}>
           <Outlet></Outlet>
