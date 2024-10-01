@@ -1,15 +1,15 @@
-import { useTableColumnHooks } from "./hooks";
-import { PROGRAM_PAGE_MODALS } from "./types";
-import { CreateEditProgramModal, RemoveProgramModal } from "./modals";
-import { PROGRAM_QUERY_KEY } from "./constants";
+// import { useTableColumnHooks } from "./hooks";
+// import { PROGRAM_PAGE_MODALS } from "./types";
+// import { CreateEditProgramModal, RemoveProgramModal } from "./modals";
+// import { PROGRAM_QUERY_KEY } from "./constants";
 import { Form } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { PageTemplate } from "../../components";
+// import { PageTemplate } from "../../components";
 import { useApiProvider } from "../../context";
 
 const ProgramPage = () => {
-  const columns = useTableColumnHooks();
+  // const columns = useTableColumnHooks();
   const [form] = Form.useForm();
   const { get } = useApiProvider();
   const { data } = useQuery({
@@ -26,7 +26,7 @@ const ProgramPage = () => {
   }, [data]);
   return (
     <>
-      <PageTemplate
+      {/* <PageTemplate
         columns={columns}
         fetchApiRouter={"/program"}
         registredModals={{
@@ -48,7 +48,7 @@ const ProgramPage = () => {
             naziv: null,
           });
         }}
-      />
+      /> */}
     </>
   );
 };
