@@ -1,8 +1,10 @@
-import { Col, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
 import { SPA_ROUTES } from "../constants";
+import { useApiProvider } from "../context";
 
 const HomePage = () => {
+  const { post } = useApiProvider();
   const navLinkMap = [
     {
       label: "Programi",
@@ -58,6 +60,15 @@ const HomePage = () => {
           </Row>
         </Col>
         <Col span={18}>
+          <div>
+            <Button
+              onClick={() => {
+                post("/sync");
+              }}
+            >
+              Sync
+            </Button>
+          </div>
           <Outlet></Outlet>
         </Col>
       </Row>
