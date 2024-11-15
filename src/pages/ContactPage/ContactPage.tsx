@@ -96,6 +96,13 @@ const ContactPage = () => {
       <Form.Item label="nedeljom" name="nedeljom" rules={[{ required: false }]}>
         <Input />
       </Form.Item>
+      <Form.Item
+        label="Kupujem Prodajem link"
+        name="kupujemProdajem"
+        rules={[{ required: false }]}
+      >
+        <Input />
+      </Form.Item>
 
       <Row justify={"end"} className="mt-2">
         <Space>
