@@ -9,14 +9,6 @@ const HomePage = () => {
       url: SPA_ROUTES.PROGRAM_PAGE,
     },
     {
-      label: "Kategorije",
-      url: SPA_ROUTES.CATEGORY_PAGE,
-    },
-    {
-      label: "Prozivodi",
-      url: SPA_ROUTES.PRODUCT_PAGE,
-    },
-    {
       label: "O nama",
       url: SPA_ROUTES.ABOUT,
     },

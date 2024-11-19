@@ -1,14 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { SPA_ROUTES } from "../constants";
 import { AboutPage } from "../pages/AboutPage";
-import {
-  HomePage,
-  ProgramPage,
-  CategoryPage,
-  ProductPage,
-  ContactPage,
-  PocetnaPage,
-} from "../pages";
+import { HomePage, ProgramPage, ContactPage, PocetnaPage } from "../pages";
 
 export const router = createBrowserRouter(
   [
@@ -19,14 +12,6 @@ export const router = createBrowserRouter(
         {
           index: true,
           element: <ProgramPage />,
-        },
-        {
-          path: SPA_ROUTES.CATEGORY_PAGE,
-          element: <CategoryPage />,
-        },
-        {
-          path: SPA_ROUTES.PRODUCT_PAGE,
-          element: <ProductPage />,
         },
         {
           path: SPA_ROUTES.ABOUT,
